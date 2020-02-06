@@ -55,3 +55,14 @@ Start Minikube tunnel in another terminal window to assign external IP's to ever
 ```bash
 $ minikube tunnel
 ```
+
+## Tools
+
+### Kubernetes Dashboard
+
+Start the dashboard with the following command:
+
+```bash
+$ minikube dashboard
+```
+
