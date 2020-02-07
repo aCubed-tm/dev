@@ -6,6 +6,7 @@
 
 Make sure to install the following tools on your machine:
 
+* [Install Docker for Desktop](https://www.docker.com/products/docker-desktop/)
 * [Install Skaffold](https://skaffold.dev/docs/install/)
 * [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [Install minikube](https://minikube.sigs.k8s.io/docs/start/)
