@@ -45,6 +45,13 @@ A solution [found on GitHub](https://github.com/kubernetes/minikube/issues/3104#
 
 ## Run the dev-env
 
+Start Minikube. *Minikube should be started before you start Skaffold.*
+
+```bash
+$ minikube start
+```
+
+
 Start Skaffold (with file watcher) by running the following command in the root of the 'dev' repo.
 
 ```bash
