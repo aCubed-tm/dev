@@ -1,0 +1,84 @@
+<accounts>: [uid] @reverse .
+<active>: bool @index(bool) .
+<address>: string @index(hash) .
+<avaterURL>: string @index(exact) .
+<description>: string .
+<displayName>: string @index(hash) .
+<email>: [uid] @reverse .
+<emailAddress>: string @index(hash) .
+<fieldOfView>: float .
+<firstName>: string @index(hash) .
+<invites>: [uid] @reverse .
+<isPrimary>: bool @index(bool) .
+<locationX>: float @index(float) .
+<locationY>: float @index(float) .
+<locationZ>: float @index(float) .
+<name>: default .
+<note>: string @index(hash) .
+<password>: default .
+<pitch>: float .
+<yaw>: float .
+<profile>: [uid] @reverse .
+<uuid>: string @index(exact) .
+<verificationToken>: string @index(exact) .
+<verifiedAt>: datetime .
+<token>: string @index(exact) .
+<sentAt>: datetime @index(day) .
+<jwttoken>: [uid] @reverse .
+<organisation>: [uid] @reverse .
+
+type Profile {
+    firstName
+    name
+    displayName
+    avaterURL
+    description
+}
+
+type Email {
+    emailAddress
+    isPrimary
+    verificationToken
+    verifiedAt
+}
+
+type Account {
+    uuid
+    email
+    active
+    password
+    profile
+    jwttoken
+}
+
+type Organisation {
+    uuid
+    profile
+}
+
+type Invite {
+    email
+    sentAt
+    organisation
+}
+
+type JWTToken {
+    token
+}
+
+type TracableObject {
+    uuid
+    name
+    note
+}
+
+type Camera {
+    uuid
+    name
+    locationX
+    locationY
+    locationZ
+    pitch
+    yaw
+    fieldOfView
+}
