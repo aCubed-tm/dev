@@ -88,7 +88,7 @@
         _:tracableObject2 <uuid> "7d405caa-1441-4496-941c-1b402968db6e" .
         _:tracableObject2 <name> "transporter" .
         _:tracableObject2 <note> "When overheating, get out!" .
-        _:tracableObject <dgraph.type> "TracableObject" .
+        _:tracableObject2 <dgraph.type> "TracableObject" .
 
 
         # create cameras
