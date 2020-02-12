@@ -29,6 +29,8 @@ spec:
             value: DNS
           - name: NEO4J_causal__clustering_initial__discovery__members
             value: "neo4j.default.svc.cluster.local:5000"
+          - name: NEO4J_AUTH
+            value: none
         command:
           - "/bin/bash"
           - "-ecx"
