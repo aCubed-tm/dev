@@ -47,7 +47,7 @@ CREATE (invite3)-[:EMAIL]->(email4)
 
 
 // tracable objects
-CREATE (object1:TracableObject { uuid:"643a3b2e-75a9-401f-a65c-4463b983c599",name:"vehicle 1",note:"This vehicle transports containers"}
+CREATE (object1:TracableObject { uuid:"643a3b2e-75a9-401f-a65c-4463b983c599",name:"vehicle 1",note:"This vehicle transports containers"})
 CREATE (object2:TracableObject { uuid:"7d405caa-1441-4496-941c-1b402968db6e",name:"transporter",note:"When overheating, get out!"})
 
 // cameras
