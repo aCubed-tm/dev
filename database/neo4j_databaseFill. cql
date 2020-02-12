@@ -1,30 +1,97 @@
 // account voor Martijn -> invited, not registered
-CREATE (email1:Email { emailAddress:"martijn.driesen@mail.be", isPrimary:true})
+CREATE (
+    email1:Email { 
+        emailAddress:"martijn.driesen@mail.be",
+        isPrimary:true
+    }
+)
 
 // account voor Lenny -> invited, registered
-CREATE (email2:Email { emailAddress:"lenny.kr@mail.be",isPrimary:true,verifiedAt:"2020-01-25T09:10:04-06:12",verificationToken:"verified20200125T0910040612"})
-CREATE (email3:Email { emailAddress:"lenny.kr2@mail.be",isPrimary:false,verifiedAt:"2020-01-25T09:10:09-06:12",verificationToken:"verified20200125T0910090612"})
+CREATE (
+    email2:Email { 
+        emailAddress:"lenny.kr@mail.be",
+        isPrimary:true,verifiedAt:"2020-01-25T09:10:04-06:12",
+        verificationToken:"verified20200125T0910040612"
+    }
+)
+CREATE (
+    email3:Email {
+        emailAddress:"lenny.kr2@mail.be",
+        isPrimary:false,
+        verifiedAt:"2020-01-25T09:10:09-06:12",
+        verificationToken:"verified20200125T0910090612"
+    }
+)
 
-CREATE (profile1:Profile { name:"Kraaijenhof",firstName:"Lenny",description:"Lenny works hard"})
+CREATE (
+    profile1:Profile {
+        name:"Kraaijenhof",
+        firstName:"Lenny",
+        description:"Lenny works hard"
+    }
+)
 
-CREATE (account1:Account { uuid:"7c7020be-cb10-4e5d-851d-970daaad6c6b",password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",active:true})
+CREATE (
+    jwttoken1:JWTToken {
+        token: testdin
+    }
+)
+
+CREATE (
+    account1:Account {
+        uuid:"7c7020be-cb10-4e5d-851d-970daaad6c6b",
+        password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",
+        active:true
+    }
+)
 
 CREATE (account1)-[:PROFILE]->(profile1)
 CREATE (account1)-[:EMAIL]->(email2)
 CREATE (account1)-[:EMAIL]->(email3)
+CREATE (account1)-[:TOKEN]->(jwttoken1)
 
 // account voor John -> invited, registered
-CREATE (email4:Email { emailAddress:"john.doe@mail.be",isPrimary:true})
+CREATE (
+    email4:Email { 
+        emailAddress:"john.doe@mail.be",
+        isPrimary:true
+    }
+)
 
-CREATE (profile2:Profile { name:"Doe",firstName:"John",description:"John doesn't work hard"})
+CREATE (
+    profile2:Profile {
+        name:"Doe",
+        firstName:"John",
+        description:"John doesn't work hard"
+    }
+)
 
-CREATE (account2:Account { uuid:"878fdeea-f023-4263-8ae4-07384e07f809",password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",active:true})
+CREATE (
+    jwttoken2:JWTToken {
+        token: testdin
+    }
+)
+
+CREATE (
+    account2:Account {
+        uuid:"878fdeea-f023-4263-8ae4-07384e07f809",
+        password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",
+        active:true
+    }
+)
 
 CREATE (account2)-[:PROFILE]->(profile2)
 CREATE (account2)-[:EMAIL]->(email4)
+CREATE (account2)-[:TOKEN]->(jwttoken2)
 
 // organistatie Acubed
-CREATE (profile3:Profile { name:"Acubed",displayName:"A3",description:"A lovely team"})
+CREATE (
+    profile3:Profile {
+        name:"Acubed",
+        displayName:"A3",
+        description:"A lovely team"
+    }
+)
 
 CREATE (organisation1:Organisation { uuid:"2c0ada33-5f92-44b8-bb2f-a04281149a4b"})
 
@@ -32,25 +99,82 @@ CREATE (organisation1)-[:PROFILE]->(profile3)
 
 
 // invites voor Acubed
-CREATE (invite1:Invite { sentAt:"2020-01-25T08:05:02-15:14"})
+CREATE (
+    invite1:Invite {
+        sentAt:"2020-01-25T08:05:02-15:14"
+    }
+)
 CREATE (invite1)-[:ORGANISATION]->(organisation1)
 CREATE (invite1)-[:EMAIL]->(email1)
 
 
-CREATE (invite2:Invite { sentAt:"2020-01-25T08:05:02-15:14"})
+CREATE (
+    invite2:Invite {
+        sentAt:"2020-01-25T08:05:02-15:14"
+    }
+)
 CREATE (invite2)-[:ORGANISATION]->(organisation1)
 CREATE (invite2)-[:EMAIL]->(email2)
 
-CREATE (invite3:Invite { sentAt:"2020-01-25T08:05:02-15:14"})
+CREATE (
+    invite3:Invite { 
+        sentAt:"2020-01-25T08:05:02-15:14"
+    }
+)
 CREATE (invite3)-[:ORGANISATION]->(organisation1)
 CREATE (invite3)-[:EMAIL]->(email4)
 
 
 // tracable objects
-CREATE (object1:TracableObject { uuid:"643a3b2e-75a9-401f-a65c-4463b983c599",name:"vehicle 1",note:"This vehicle transports containers"}
-CREATE (object2:TracableObject { uuid:"7d405caa-1441-4496-941c-1b402968db6e",name:"transporter",note:"When overheating, get out!"})
+CREATE (
+    object1:TracableObject {
+        uuid:"643a3b2e-75a9-401f-a65c-4463b983c599",
+        name:"vehicle 1",
+        note:"This vehicle transports containers"
+    }
+)
+CREATE (
+    object2:TracableObject {
+        uuid:"7d405caa-1441-4496-941c-1b402968db6e",
+        name:"transporter",
+        note:"When overheating, get out!"
+    }
+)
 
 // cameras
-CREATE (camera1:Camera { uuid:"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed",name:"tower cam 1",locationX:"2.04950",locationY:"1.34902",locationZ:"4.234533",pitch:"-45",yaw:"0",fieldOfView:"135"})
-CREATE (camera2:Camera { uuid:"021e5af0-ba2f-4b04-8de0-50b13c0cc95a",name:"tower cam 2",locationX:"4.04950",locationY:"3.34902",locationZ:"4.234533",pitch:"-45",yaw:"180",fieldOfView:"135"})
-CREATE (camera2:Camera { uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",name:"tower cam 3",locationX:"0.04950",locationY:"3.34902",locationZ:"4.234533",pitch:"-45",yaw:"68",fieldOfView:"135"})
+CREATE (
+    Camera1:Camera {
+        uuid:"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed",
+        name:"tower cam 1",
+        locationX:"2.04950",
+        locationY:"1.34902",
+        locationZ:"4.234533",
+        pitch:"-45",
+        yaw:"0",
+        fieldOfView:"135"
+    }
+)
+CREATE (
+    camera2:Camera {
+        uuid:"021e5af0-ba2f-4b04-8de0-50b13c0cc95a",
+        name:"tower cam 2",
+        locationX:"4.04950",
+        locationY:"3.34902",
+        locationZ:"4.234533",
+        pitch:"-45",
+        yaw:"180",
+        fieldOfView:"135"
+    }
+)
+CREATE (
+    camera2:Camera {
+        uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",
+        name:"tower cam 3",
+        locationX:"0.04950",
+        locationY:"3.34902",
+        locationZ:"4.234533",
+        pitch:"-45",
+        yaw:"68",
+        fieldOfView:"135"
+    }
+)
