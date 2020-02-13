@@ -1,3 +1,10 @@
+CONNECT INFLUXDB:
+~ docker exec -it influxdb influx -format=json
+> connect 192.168.0.21:8086
+> use Acubed
+> [run query]
+
+
 Serie:
 Location
 
@@ -19,6 +26,27 @@ GetAllDataPerCompany:
 SELECT time, x,y,z FROM "location" WHERE company = '[companyUID]' GROUP BY "object" ORDER BY time DESC LIMIT 1
 example:
 SELECT time, x,y,z FROM "location" WHERE company = '1' GROUP BY "object" ORDER BY time DESC LIMIT 1
+return:
+{
+    "results":
+    [
+        {
+            "series":
+            [
+                {
+                    "name":"location",
+                    "tags":
+                        {
+                            "object":"1"
+                        },
+                    "columns":["time","x","y","z"],
+                    "values":[[1581593342132648161,4,5,1]]
+                }
+            ]
+        }
+    ]
+}
+
 
 Testdata location:
 INSERT location,object=1,company=1 x=1,y=1,z=1
