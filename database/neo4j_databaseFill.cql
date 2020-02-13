@@ -33,7 +33,7 @@ CREATE (
 
 CREATE (
     jwttoken1:JWTToken {
-        token: testdin
+        token: "testdin"
     }
 )
 
@@ -68,7 +68,7 @@ CREATE (
 
 CREATE (
     jwttoken2:JWTToken {
-        token: testdin
+        token: "testdin"
     }
 )
 
@@ -97,32 +97,10 @@ CREATE (organisation1:Organisation { uuid:"2c0ada33-5f92-44b8-bb2f-a04281149a4b"
 
 CREATE (organisation1)-[:PROFILE]->(profile3)
 
+CREATE (organisation1)-[:INVITED {sentAt:"2020-01-25T08:05:02-15:14"}]->(email1)
+CREATE (organisation1)-[:INVITED {sentAt:"2020-01-25T08:05:02-15:14"}]->(email2)
+CREATE (organisation1)-[:INVITED {sentAt:"2020-01-25T08:05:02-15:14"}]->(email4)
 
-// invites voor Acubed
-CREATE (
-    invite1:Invite {
-        sentAt:"2020-01-25T08:05:02-15:14"
-    }
-)
-CREATE (invite1)-[:ORGANISATION]->(organisation1)
-CREATE (invite1)-[:EMAIL]->(email1)
-
-
-CREATE (
-    invite2:Invite {
-        sentAt:"2020-01-25T08:05:02-15:14"
-    }
-)
-CREATE (invite2)-[:ORGANISATION]->(organisation1)
-CREATE (invite2)-[:EMAIL]->(email2)
-
-CREATE (
-    invite3:Invite { 
-        sentAt:"2020-01-25T08:05:02-15:14"
-    }
-)
-CREATE (invite3)-[:ORGANISATION]->(organisation1)
-CREATE (invite3)-[:EMAIL]->(email4)
 
 
 // tracable objects
@@ -167,7 +145,7 @@ CREATE (
     }
 )
 CREATE (
-    camera2:Camera {
+    camera3:Camera {
         uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",
         name:"tower cam 3",
         locationX:"0.04950",
