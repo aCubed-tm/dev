@@ -14,6 +14,12 @@ z = z-coordinate
 Create query format: 
 INSERT location,object=[objectUUID as int],company=[companyUUID as int] x=[x-value],y=[y-value],z=[z-value]
 
+
+GetAllDataPerCompany:
+SELECT time, x,y,z FROM "location" WHERE company = '[companyUID]' GROUP BY "object" ORDER BY time DESC LIMIT 1
+example:
+SELECT time, x,y,z FROM "location" WHERE company = '1' GROUP BY "object" ORDER BY time DESC LIMIT 1
+
 Testdata location:
 INSERT location,object=1,company=1 x=1,y=1,z=1
 INSERT location,object=1,company=1 x=1,y=2,z=1
