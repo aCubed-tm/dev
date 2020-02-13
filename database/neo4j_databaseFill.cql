@@ -33,7 +33,7 @@ CREATE (
 
 CREATE (
     jwttoken1:JWTToken {
-        token: testdin
+        token: "testdin"
     }
 )
 
@@ -68,7 +68,7 @@ CREATE (
 
 CREATE (
     jwttoken2:JWTToken {
-        token: testdin
+        token: "testdin"
     }
 )
 
@@ -167,7 +167,7 @@ CREATE (
     }
 )
 CREATE (
-    camera2:Camera {
+    camera3:Camera {
         uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",
         name:"tower cam 3",
         locationX:"0.04950",
