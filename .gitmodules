@@ -4,3 +4,6 @@
 [submodule "authentication-service"]
 	path = authentication-service
 	url = https://github.com/aCubed-tm/authentication-service.git
+[submodule "profile-service"]
+	path = profile-service
+	url = https://github.com/aCubed-tm/profile-service.git
