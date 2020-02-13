@@ -1,6 +1,7 @@
 // account voor Martijn -> invited, not registered
 CREATE (
     email1:Email { 
+        uuid: "a6636e64-ef40-4e25-89e1-d49e5f87eaa3",
         emailAddress:"martijn.driesen@mail.be",
         isPrimary:true
     }
@@ -9,6 +10,7 @@ CREATE (
 // account voor Lenny -> invited, registered
 CREATE (
     email2:Email { 
+        uuid: "4603bf16-d56f-4758-b369-b4e297fc1695",
         emailAddress:"lenny.kr@mail.be",
         isPrimary:true,verifiedAt:"2020-01-25T09:10:04-06:12",
         verificationToken:"verified20200125T0910040612"
@@ -16,6 +18,7 @@ CREATE (
 )
 CREATE (
     email3:Email {
+        uuid: "2709caba-7174-476f-8f68-4aca6fe5cbf6",
         emailAddress:"lenny.kr2@mail.be",
         isPrimary:false,
         verifiedAt:"2020-01-25T09:10:09-06:12",
