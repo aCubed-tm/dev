@@ -1,3 +1,0 @@
-email has account -> invited -> accepted
-email has account -> invited -> not accepted
-email no account  -> invited -> not accepted
