@@ -45,10 +45,11 @@ CREATE (
     }
 )
 
-CREATE (account1)-[:PROFILE]->(profile1)
-CREATE (account1)-[:EMAIL]->(email2)
-CREATE (account1)-[:EMAIL]->(email3)
-CREATE (account1)-[:TOKEN]->(jwttoken1)
+CREATE (account1)-[:HAS_PROFILE]->(profile1)
+CREATE (account1)-[:HAS_EMAIL]->(email2)
+CREATE (account1)-[:HAS_EMAIL]->(email3)
+CREATE (account1)-[:HAS_TOKEN]->(jwttoken1)
+
 
 // account voor John -> invited, registered
 CREATE (
@@ -80,9 +81,9 @@ CREATE (
     }
 )
 
-CREATE (account2)-[:PROFILE]->(profile2)
-CREATE (account2)-[:EMAIL]->(email4)
-CREATE (account2)-[:TOKEN]->(jwttoken2)
+CREATE (account2)-[:HAS_PROFILE]->(profile2)
+CREATE (account2)-[:HAS_EMAIL]->(email4)
+CREATE (account2)-[:HAS_TOKEN]->(jwttoken2)
 
 // organistatie Acubed
 CREATE (
@@ -95,7 +96,7 @@ CREATE (
 
 CREATE (organisation1:Organisation { uuid:"2c0ada33-5f92-44b8-bb2f-a04281149a4b"})
 
-CREATE (organisation1)-[:PROFILE]->(profile3)
+CREATE (organisation1)-[:HAS_PROFILE]->(profile3)
 
 CREATE (organisation1)-[:INVITED {sentAt:"2020-01-25T08:05:02-15:14"}]->(email1)
 CREATE (organisation1)-[:INVITED {sentAt:"2020-01-25T08:05:02-15:14"}]->(email2)
@@ -156,3 +157,8 @@ CREATE (
         fieldOfView:"135"
     }
 )
+
+// alles verwijderen
+// NIET KOPIEREN VOOR INITIALISATIE!
+MATCH (n)
+DETACH DELETE n
