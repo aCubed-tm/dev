@@ -2,7 +2,7 @@
 CREATE (
     email1:Email { 
         emailAddress:"martijn.driesen@mail.be",
-        isPrimary:true,
+        isPrimary:true
     }
 )
 
@@ -11,7 +11,7 @@ CREATE (
     email2:Email { 
         emailAddress:"lenny.kr@mail.be",
         isPrimary:true,verifiedAt:"2020-01-25T09:10:04-06:12",
-        verificationToken:"verified20200125T0910040612",
+        verificationToken:"verified20200125T0910040612"
     }
 )
 CREATE (
@@ -19,7 +19,7 @@ CREATE (
         emailAddress:"lenny.kr2@mail.be",
         isPrimary:false,
         verifiedAt:"2020-01-25T09:10:09-06:12",
-        verificationToken:"verified20200125T0910090612",
+        verificationToken:"verified20200125T0910090612"
     }
 )
 
@@ -27,13 +27,13 @@ CREATE (
     profile1:Profile {
         name:"Kraaijenhof",
         firstName:"Lenny",
-        description:"Lenny works hard",
+        description:"Lenny works hard"
     }
 )
 
 CREATE (
     jwttoken1:JWTToken {
-        token: "testdin",
+        token: "testdin"
     }
 )
 
@@ -41,7 +41,7 @@ CREATE (
     account1:Account {
         uuid:"7c7020be-cb10-4e5d-851d-970daaad6c6b",
         password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",
-        active:true,
+        active:true
     }
 )
 
@@ -55,7 +55,7 @@ CREATE (account1)-[:HAS_TOKEN]->(jwttoken1)
 CREATE (
     email4:Email { 
         emailAddress:"john.doe@mail.be",
-        isPrimary:true,
+        isPrimary:true
     }
 )
 
@@ -63,13 +63,13 @@ CREATE (
     profile2:Profile {
         name:"Doe",
         firstName:"John",
-        description:"John doesn't work hard",
+        description:"John doesn't work hard"
     }
 )
 
 CREATE (
     jwttoken2:JWTToken {
-        token: "testdin",
+        token: "testdin"
     }
 )
 
@@ -77,7 +77,7 @@ CREATE (
     account2:Account {
         uuid:"878fdeea-f023-4263-8ae4-07384e07f809",
         password:"$2y$12$d.4Q/KxKfozkepVV8ofSiOdcMSmLUouzoJqkGvxiFwrP6dPTcz/my",
-        active:true,
+        active:true
     }
 )
 
@@ -90,7 +90,7 @@ CREATE (
     profile3:Profile {
         name:"Acubed",
         displayName:"A3",
-        description:"A lovely team",
+        description:"A lovely team"
     }
 )
 
@@ -109,14 +109,14 @@ CREATE (
     object1:TracableObject {
         uuid:"643a3b2e-75a9-401f-a65c-4463b983c599",
         name:"vehicle 1",
-        note:"This vehicle transports containers",
+        note:"This vehicle transports containers"
     }
 )
 CREATE (
     object2:TracableObject {
         uuid:"7d405caa-1441-4496-941c-1b402968db6e",
         name:"transporter",
-        note:"When overheating, get out!",
+        note:"When overheating, get out!"
     }
 )
 
@@ -130,7 +130,7 @@ CREATE (
         locationZ:"4.234533",
         pitch:"-45",
         yaw:"0",
-        fieldOfView:"135",
+        fieldOfView:"135"
     }
 )
 CREATE (
@@ -142,7 +142,7 @@ CREATE (
         locationZ:"4.234533",
         pitch:"-45",
         yaw:"180",
-        fieldOfView:"135",
+        fieldOfView:"135"
     }
 )
 CREATE (
@@ -154,7 +154,7 @@ CREATE (
         locationZ:"4.234533",
         pitch:"-45",
         yaw:"68",
-        fieldOfView:"135",
+        fieldOfView:"135"
     }
 )
 
