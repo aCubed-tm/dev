@@ -1,0 +1,24 @@
+FORMAT
+------
+LOCATION:
+INSERT location,object=[objectUUID as int],company=[companyUUID as int] x=[x-value],y=[y-value],z=[z-value]
+
+CAMERA:
+INSERT camera,camera=[cameraUUID as int],object=[objectUUID] x=[x-value],y=[y-value]
+
+
+INSERT location,object=1,company=1 x=1,y=1,z=1
+INSERT location,object=1,company=1 x=1,y=2,z=1
+INSERT location,object=1,company=1 x=1,y=2,z=4
+INSERT location,object=1,company=1 x=2,y=2,z=4
+INSERT location,object=1,company=1 x=2,y=5,z=4
+INSERT location,object=1,company=1 x=2,y=5,z=1
+INSERT location,object=1,company=1 x=4,y=5,z=1
+
+
+INSERT camera,camera=1,object=1 x=3,y=4
+INSERT camera,camera=2,object=1 x=7,y=9
+INSERT camera,camera=3,object=1 x=5,y=7
+INSERT camera,camera=1,object=1 x=6,y=4
+INSERT camera,camera=2,object=1 x=8,y=7
+INSERT camera,camera=3,object=1 x=8,y=6
