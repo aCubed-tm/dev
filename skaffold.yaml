@@ -8,6 +8,8 @@ build:
   artifacts:
   - image: authentication-service
     context: ./authentication-service/
+  - image: profile-service
+    context: ./profile-service/
   - image: edge
     context: ./edge/
 deploy:
@@ -15,4 +17,5 @@ deploy:
     manifests:
     - kubernetes/*
     - authentication-service/kubernetes/dev*
+    - profile-service/kubernetes/dev*
     - edge/kubernetes/dev*
