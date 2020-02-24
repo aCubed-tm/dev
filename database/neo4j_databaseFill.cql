@@ -57,6 +57,7 @@ CREATE (account1)-[:HAS_TOKEN]->(jwttoken1)
 // account voor John -> invited, registered
 CREATE (
     email4:Email { 
+        uuid: "48fa1c19-5865-4239-ab6c-8685995adb2f",
         emailAddress:"john.doe@mail.be",
         isPrimary:true
     }
