@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "f932328e-43fc-4615-9227-4e1864dff483",
+		"name": "aCubed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Log in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "47e0575a-6698-4501-8bef-076417c08a77",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"lenny.kr@mail.be\",\n\t\"password\": \"test123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/auth/authenticate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"authenticate"
+							]
+						},
+						"description": "Logs in using an existing account"
+					},
+					"response": []
+				},
+				{
+					"name": "Log out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/auth/close",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"close"
+							]
+						},
+						"description": "Logs out a single session/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Log all out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Logs out a single session/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Email activation",
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/auth/activate/{{EMAIL_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"activate",
+								"{{EMAIL_TOKEN}}"
+							]
+						},
+						"description": "Activate a (new?) email."
+					},
+					"response": []
+				},
+				{
+					"name": "Meet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"lenny.kr@mail.be\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/auth/meet",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"meet"
+							]
+						},
+						"description": "Returns the user id and all the organizations they're invited to"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"martijn.driesen@mail.be\",\n\t\"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers an account for a user, assuming they are invited by a company"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Fetch profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/profile/user/7c7020be-cb10-4e5d-851d-970daaad6c6b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"user",
+								"7c7020be-cb10-4e5d-851d-970daaad6c6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch organization profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/profile/organisation/2c0ada33-5f92-44b8-bb2f-a04281149a4b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"organisation",
+								"2c0ada33-5f92-44b8-bb2f-a04281149a4b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/javascript"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"jeffrey\",\n    \"name\": \"smith\",\n    \"description\": \"he's a bro\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/profile/user/7c7020be-cb10-4e5d-851d-970daaad6c6b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"user",
+								"7c7020be-cb10-4e5d-851d-970daaad6c6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update organization profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/javascript"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"displayName\": \"smith\",\n    \"description\": \"he's a bro\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/profile/organisation/2c0ada33-5f92-44b8-bb2f-a04281149a4b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"organisation",
+								"2c0ada33-5f92-44b8-bb2f-a04281149a4b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/javascript"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"jeffrey\",\n    \"name\": \"smith\",\n    \"description\": \"he's a bro\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/profile/user/7c7020be-cb10-4e5d-851d-970daaad6c6b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"user",
+								"7c7020be-cb10-4e5d-851d-970daaad6c6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create organization profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiN2M3MDIwYmUtY2IxMC00ZTVkLTg1MWQtOTcwZGFhYWQ2YzZiIiwiaWF0IjoxNTgxNTk0MTkyfQ.dHcNSlfC-HE06pQ6TehLJWM4qggx7sYtkqZzUynVkgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/javascript"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"displayName\": \"smith\",\n    \"description\": \"he's a bro\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/profile/organisation/2c0ada33-5f92-44b8-bb2f-a04281149a4b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"organisation",
+								"2c0ada33-5f92-44b8-bb2f-a04281149a4b"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c09b93a6-7a66-4185-a96a-c344bbaa04b0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "223b2914-a0f9-4654-94af-a349094d9588",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e5cce730-9e62-49ac-8d03-832f1f043e87",
+			"key": "URL",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"id": "3605ca12-6971-434d-a69f-ae5ea5064146",
+			"key": "EMAIL_TOKEN",
+			"value": "verified20200125T0910040612",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
