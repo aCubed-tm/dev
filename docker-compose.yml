@@ -1,0 +1,73 @@
+version: "3"
+
+services:
+  edge.acubed:
+    build: ./edge
+    ports:
+      - 5372:80
+    networks:
+      - backend
+  
+  authentication-service.acubed:
+    build: ./authentication-service
+    networks:
+      - backend
+  
+  profile-service.acubed:
+    build: ./profile-service
+    networks:
+      - backend
+
+  neo4j-public.default:
+    image: neo4j:3.5-enterprise
+    networks:
+      - backend
+    ports:
+      - 7474:7474
+      - 6477:6477
+      - 7687:7687
+    volumes:
+      - $HOME/neo4j/neo4j-core1/conf:/conf
+      - $HOME/neo4j/neo4j-core1/data:/data
+      - $HOME/neo4j/neo4j-core1/logs:/logs
+      - $HOME/neo4j/neo4j-core1/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=none
+#      - NEO4J_AUTH=neo4j/changeme
+      - NEO4J_dbms_mode=CORE
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=2
+      - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=2
+      - NEO4J_causal__clustering_initial__discovery__members=neo4j-public.default:5000,neo4j-public_2.default:5000
+      - NEO4J_dbms_connector_http_listen__address=:7474
+      - NEO4J_dbms_connector_https_listen__address=:6477
+      - NEO4J_dbms_connector_bolt_listen__address=:7687
+
+  neo4j-public_2.default:
+    image: neo4j:3.5-enterprise
+    networks:
+      - backend
+    ports:
+      - 7475:7475
+      - 6478:6478
+      - 7688:7688
+    volumes:
+      - $HOME/neo4j/neo4j-core2/conf:/conf
+      - $HOME/neo4j/neo4j-core2/data:/data
+      - $HOME/neo4j/neo4j-core2/logs:/logs
+      - $HOME/neo4j/neo4j-core1/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=none
+#      - NEO4J_AUTH=neo4j/changeme
+      - NEO4J_dbms_mode=CORE
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      - NEO4J_causal__clustering_minimum__core__cluster__size__at__formation=2
+      - NEO4J_causal__clustering_minimum__core__cluster__size__at__runtime=2
+      - NEO4J_causal__clustering_initial__discovery__members=neo4j-public.default:5000,neo4j-public_2.default:5000
+      - NEO4J_dbms_connector_http_listen__address=:7475
+      - NEO4J_dbms_connector_https_listen__address=:6478
+      - NEO4J_dbms_connector_bolt_listen__address=:7688
+
+networks:
+    backend:
+       driver: bridge
