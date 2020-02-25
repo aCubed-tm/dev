@@ -1,7 +1,3 @@
-// alles verwijderen
-MATCH (n)
-DETACH DELETE n
-
 // account voor Martijn -> invited, not registered
 CREATE (
     email1:Email { 
@@ -130,7 +126,7 @@ CREATE (
 
 // cameras
 CREATE (
-    Camera1:Camera {
+    camera1:Camera {
         uuid:"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed",
         name:"tower cam 1",
         locationX:2.04950,
@@ -138,6 +134,8 @@ CREATE (
         locationZ:4.234533,
         pitch:-45,
         yaw:0,
+        resolutionX: 1920,
+        resolutiony: 1080,
         fieldOfView:135
     }
 )
@@ -150,6 +148,8 @@ CREATE (
         locationZ:4.234533,
         pitch:-45,
         yaw:180,
+        resolutionX: 640,
+        resolutiony: 480,
         fieldOfView:135
     }
 )
@@ -162,6 +162,48 @@ CREATE (
         locationZ:4.234533,
         pitch:-45,
         yaw:68,
+        resolutionX: 500,
+        resolutiony: 500,
         fieldOfView:135
     }
 )
+
+// camera captures
+// TODO: juiste getallen
+CREATE (
+    capture1: Capture {
+        time: "2020-01-25T08:05:02-15:14",
+        cameraX: 0,
+        cameraY: 0
+    }
+)
+CREATE (
+    capture2: Capture {
+        time: "2020-01-25T08:05:02-16:14",
+        cameraX: 320,
+        cameraY: 240
+    }
+)
+
+CREATE (capture1)-[:CAPTURED_BY]->(camera1)
+CREATE (capture2)-[:CAPTURED_BY]->(camera2)
+CREATE (capture1)-[:CAPTURE_OF]->(object1)
+CREATE (capture2)-[:CAPTURE_OF]->(object1)
+
+// berekende tracking points
+CREATE (
+    point1: TrackingPoint {
+        time: "2020-01-25T08:05:02-15:14",
+        x: 0,
+        y: 0,
+        z: 0
+    }
+)
+
+CREATE (point1)-[:TRACKING_POINT]->(object1)
+
+// geef alle terug om makkelijk te tonen in web tool
+RETURN *
+
+// om alles te verwijderen: 
+// MATCH (n) DETACH DELETE n
