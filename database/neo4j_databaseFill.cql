@@ -133,35 +133,35 @@ CREATE (
     Camera1:Camera {
         uuid:"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed",
         name:"tower cam 1",
-        locationX:"2.04950",
-        locationY:"1.34902",
-        locationZ:"4.234533",
-        pitch:"-45",
-        yaw:"0",
-        fieldOfView:"135"
+        locationX:2.04950,
+        locationY:1.34902,
+        locationZ:4.234533,
+        pitch:-45,
+        yaw:0,
+        fieldOfView:135
     }
 )
 CREATE (
     camera2:Camera {
         uuid:"021e5af0-ba2f-4b04-8de0-50b13c0cc95a",
         name:"tower cam 2",
-        locationX:"4.04950",
-        locationY:"3.34902",
-        locationZ:"4.234533",
-        pitch:"-45",
-        yaw:"180",
-        fieldOfView:"135"
+        locationX:4.04950,
+        locationY:3.34902,
+        locationZ:4.234533,
+        pitch:-45,
+        yaw:180,
+        fieldOfView:135
     }
 )
 CREATE (
     camera3:Camera {
         uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",
         name:"tower cam 3",
-        locationX:"0.04950",
-        locationY:"3.34902",
-        locationZ:"4.234533",
-        pitch:"-45",
-        yaw:"68",
-        fieldOfView:"135"
+        locationX:0.04950,
+        locationY:3.34902,
+        locationZ:4.234533,
+        pitch:-45,
+        yaw:68,
+        fieldOfView:135
     }
 )
