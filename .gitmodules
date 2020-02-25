@@ -7,3 +7,6 @@
 [submodule "profile-service"]
 	path = profile-service
 	url = https://github.com/aCubed-tm/profile-service.git
+[submodule "tracking-service"]
+	path = tracking-service
+	url = https://github.com/aCubed-tm/tracking-service.git
