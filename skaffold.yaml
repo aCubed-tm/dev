@@ -10,6 +10,8 @@ build:
     context: ./authentication-service/
   - image: profile-service
     context: ./profile-service/
+  - image: tracking-service
+    context: ./tracking-service/
   - image: edge
     context: ./edge/
 deploy:
@@ -18,4 +20,5 @@ deploy:
     - kubernetes/*
     - authentication-service/kubernetes/dev*
     - profile-service/kubernetes/dev*
+    - tracking-service/kubernetes/dev*
     - edge/kubernetes/dev*

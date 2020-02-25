@@ -17,6 +17,11 @@ services:
     build: ./profile-service
     networks:
       - backend
+  
+  tracking-service.acubed:
+    build: ./tracking-service
+    networks:
+      - backend
 
   neo4j-public.default:
     image: neo4j:3.5-enterprise
