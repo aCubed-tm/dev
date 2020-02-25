@@ -1,3 +1,7 @@
+// alles verwijderen
+MATCH (n)
+DETACH DELETE n
+
 // account voor Martijn -> invited, not registered
 CREATE (
     email1:Email { 
@@ -161,8 +165,3 @@ CREATE (
         fieldOfView:"135"
     }
 )
-
-// alles verwijderen
-// NIET KOPIEREN VOOR INITIALISATIE!
-MATCH (n)
-DETACH DELETE n
