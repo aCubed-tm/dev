@@ -723,7 +723,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"captureX\": 1,\n\t\"captureY\": 1,\n\t\"time\": \"123\",\n\t\"objectUuid\": \"643a3b2e-75a9-401f-a65c-4463b983c599\",\n\t\"cameraUuid\": \"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed\"\n}\n",
+							"raw": "[\n    {\n        \"y\": 403,\n        \"x\": 692,\n        \"code\": \"7d405caa-1441-4496-941c-1b402968db6e\",\n        \"camera\": \"021e5af0-ba2f-4b04-8de0-50b13c0cc95a\",\n        \"time\": 1582642134\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -739,6 +739,32 @@
 								"v1",
 								"tracking",
 								"capture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all objects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/v1/tracking/objects",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"tracking",
+								"objects"
 							]
 						}
 					},
@@ -772,13 +798,13 @@
 	],
 	"variable": [
 		{
-			"id": "b6a54fe2-7f70-4949-b7ed-6503cd0e21c4",
+			"id": "51acec27-4dd5-4708-bc91-359757e48e65",
 			"key": "URL",
 			"value": "http://localhost",
 			"type": "string"
 		},
 		{
-			"id": "65ac4455-54ab-450b-9bd9-e4b036ce19d9",
+			"id": "43ee4b33-7a57-4e94-ac2c-9b613c57cd77",
 			"key": "EMAIL_TOKEN",
 			"value": "verified20200125T0910040612",
 			"type": "string"
