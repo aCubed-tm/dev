@@ -129,11 +129,11 @@ CREATE (
     camera1:Camera {
         uuid:"0f63a53b-5d1d-4bda-a9eb-7f9c9f945fed",
         name:"tower cam 1",
-        locationX:2.04950,
-        locationY:1.34902,
-        locationZ:4.234533,
-        pitch:-45.0,
-        yaw:0.0,
+        locationX:-1.0, // 1m to the west
+        locationY:0.0,
+        locationZ:0.0,
+        pitch:0.0,      // no vertical rotation
+        yaw:90.0,       // facing east
         resolutionX: 1920,
         resolutionY: 1080,
         fieldOfView:135
@@ -143,18 +143,18 @@ CREATE (
     camera2:Camera {
         uuid:"021e5af0-ba2f-4b04-8de0-50b13c0cc95a",
         name:"tower cam 2",
-        locationX:4.04950,
-        locationY:3.34902,
-        locationZ:4.234533,
-        pitch:-45.0,
-        yaw:180.0,
+        locationX:1.0,  // 1m to the nort
+        locationY:1.0,  // 1m to the east
+        locationZ:0.0,  // 0m above sealevel
+        pitch:180.0,    // facing south
+        yaw:0.0,        // no vertical rotation
         resolutionX: 640,
         resolutionY: 480,
-        fieldOfView:135
+        fieldOfView:90
     }
 )
 CREATE (
-    camera3:Camera {
+    camera3:Camera { // don't care for this camera, we don't use it for testing
         uuid:"b3786550-fb7c-4a86-a070-d845c5f27747",
         name:"tower cam 3",
         locationX:0.04950,
@@ -173,15 +173,15 @@ CREATE (
 CREATE (
     capture1: Capture {
         time: 1582655773000,
-        cameraX: 0,
-        cameraY: 0
+        cameraX: 960,   // middle of view
+        cameraY: 540    // middle of view
     }
 )
 CREATE (
     capture2: Capture {
         time: 1582655774000,
-        cameraX: 320,
-        cameraY: 240
+        cameraX: 480,   // at 75%
+        cameraY: 240    // center of view
     }
 )
 
@@ -224,8 +224,8 @@ CREATE (
     }
 )
 
-CREATE (point1)-[:TRACKS]->(object1)
-CREATE (point2)-[:TRACKS]->(object1)
+CREATE (point1)-[:TRACKS]->(object2)
+CREATE (point2)-[:TRACKS]->(object2)
 CREATE (point3)-[:TRACKS]->(object2)
 CREATE (point4)-[:TRACKS]->(object2)
 
