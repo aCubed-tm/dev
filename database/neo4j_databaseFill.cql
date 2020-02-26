@@ -132,8 +132,8 @@ CREATE (
         locationX:2.04950,
         locationY:1.34902,
         locationZ:4.234533,
-        pitch:-45,
-        yaw:0,
+        pitch:-45.0,
+        yaw:0.0,
         resolutionX: 1920,
         resolutionY: 1080,
         fieldOfView:135
@@ -146,8 +146,8 @@ CREATE (
         locationX:4.04950,
         locationY:3.34902,
         locationZ:4.234533,
-        pitch:-45,
-        yaw:180,
+        pitch:-45.0,
+        yaw:180.0,
         resolutionX: 640,
         resolutionY: 480,
         fieldOfView:135
@@ -160,8 +160,8 @@ CREATE (
         locationX:0.04950,
         locationY:3.34902,
         locationZ:4.234533,
-        pitch:-45,
-        yaw:68,
+        pitch:-45.0,
+        yaw:68.0,
         resolutionX: 500,
         resolutionY: 500,
         fieldOfView:135
@@ -172,14 +172,14 @@ CREATE (
 // TODO: juiste getallen
 CREATE (
     capture1: Capture {
-        time: "2020-01-25T08:05:02-15:14",
+        time: 1582655773000,
         cameraX: 0,
         cameraY: 0
     }
 )
 CREATE (
     capture2: Capture {
-        time: "2020-01-25T08:05:02-16:14",
+        time: 1582655774000,
         cameraX: 320,
         cameraY: 240
     }
@@ -193,34 +193,34 @@ CREATE (capture2)-[:CAPTURE_OF]->(object1)
 // berekende tracking points
 CREATE (
     point1: TrackingPoint {
-        time: 1582655773,
-        x: 0,
-        y: 0,
-        z: 0
+        time: 1582655773000,
+        x: 0.0,
+        y: 0.0,
+        z: 0.0
     }
 )
 CREATE (
     point2: TrackingPoint {
-        time: 1582655764,
-        x: 10,
-        y: 10,
-        z: 10
+        time: 1582655764000,
+        x: 10.0,
+        y: 10.0,
+        z: 10.0
     }
 )
 CREATE (
     point3: TrackingPoint {
-        time: 1582655763,
-        x: 20,
-        y: 40,
-        z: 20
+        time: 1582655763000,
+        x: 20.0,
+        y: 40.0,
+        z: 20.0
     }
 )
 CREATE (
     point4: TrackingPoint {
-        time: 1582655774,
-        x: 30,
-        y: 30,
-        z: 10
+        time: 1582655774000,
+        x: 30.0,
+        y: 30.0,
+        z: 10.0
     }
 )
 
