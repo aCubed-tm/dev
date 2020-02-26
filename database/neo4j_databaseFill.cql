@@ -135,7 +135,7 @@ CREATE (
         pitch:-45,
         yaw:0,
         resolutionX: 1920,
-        resolutiony: 1080,
+        resolutionY: 1080,
         fieldOfView:135
     }
 )
@@ -149,7 +149,7 @@ CREATE (
         pitch:-45,
         yaw:180,
         resolutionX: 640,
-        resolutiony: 480,
+        resolutionY: 480,
         fieldOfView:135
     }
 )
@@ -163,7 +163,7 @@ CREATE (
         pitch:-45,
         yaw:68,
         resolutionX: 500,
-        resolutiony: 500,
+        resolutionY: 500,
         fieldOfView:135
     }
 )
@@ -193,14 +193,41 @@ CREATE (capture2)-[:CAPTURE_OF]->(object1)
 // berekende tracking points
 CREATE (
     point1: TrackingPoint {
-        time: "2020-01-25T08:05:02-15:14",
+        time: 1582655773,
         x: 0,
         y: 0,
         z: 0
     }
 )
+CREATE (
+    point2: TrackingPoint {
+        time: 1582655764,
+        x: 10,
+        y: 10,
+        z: 10
+    }
+)
+CREATE (
+    point3: TrackingPoint {
+        time: 1582655763,
+        x: 20,
+        y: 40,
+        z: 20
+    }
+)
+CREATE (
+    point4: TrackingPoint {
+        time: 1582655774,
+        x: 30,
+        y: 30,
+        z: 10
+    }
+)
 
-CREATE (point1)-[:TRACKING_POINT]->(object1)
+CREATE (point1)-[:TRACKS]->(object1)
+CREATE (point2)-[:TRACKS]->(object1)
+CREATE (point3)-[:TRACKS]->(object2)
+CREATE (point4)-[:TRACKS]->(object2)
 
 // geef alle terug om makkelijk te tonen in web tool
 RETURN *
